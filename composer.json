@@ -5,17 +5,22 @@
     "keywords":    ["filter", "dms", "symfony", "bundle"],
     "homepage":    "https://github.com/rdohms/dms-filter-bundle",
     "license":     "MIT",
-
     "authors": [
         {
             "name": "Rafael Dohms",
             "homepage": "http://doh.ms"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/djpremier/dms-filter.git"
+        }
+    ],
 
     "require": {
         "php":  "^7.1.13",
-        "dms/dms-filter": "^2.0 | ^3.0",
+        "dms/dms-filter": "dev-master",
         "symfony/yaml": "^3.4 | ^4.0 | ^5.0",
         "symfony/framework-bundle": "^3.4 | ^4.0 | ^5.0",
         "symfony/form": "^3.4 | ^4.0 | ^5.0"
