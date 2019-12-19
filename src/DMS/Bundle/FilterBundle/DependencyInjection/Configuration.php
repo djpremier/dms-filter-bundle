@@ -18,10 +18,18 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('dms_filter');
+        $treeBuilder = new TreeBuilder('dms_filter');
+        if (\method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // BC layer for symfony/config 4.1 and older
+            $rootNode = $treeBuilder->root('dms_filter');
+        }
 
-        $rootNode->children()->booleanNode('auto_filter_forms')->defaultValue(true);
+        $rootNode
+          ->children()
+            ->booleanNode('auto_filter_forms')
+              ->defaultValue(true);
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

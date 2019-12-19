@@ -67,4 +67,12 @@ class FormTypeFilterExtension extends AbstractTypeExtension
     {
         return FormType::class;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getExtendedTypes()
+    {
+        return array(FormType::class);
+    }
 }
